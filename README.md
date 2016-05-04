@@ -1,6 +1,8 @@
 # Whyline for Java
 
-The Whyline for Java is an interactive debugging tool that lets you ask "why" questions about program output. 
+The Whyline for Java is an interactive debugging tool that lets you ask "why" questions about program output.
+
+To see a demo, check out [the brief YouTube video](https://www.youtube.com/watch?v=t6gVZ-qZ4sI).
 
 ## History
 
@@ -29,5 +31,6 @@ I spent some time documenting design rationale in comments in the trickier compo
 
 ## Support
 
-Unfortunately, because I've long since moved on to other projects, I cannot support this code or develop it further. Fork it, patch it, extend it: do whatever you like with it. It's here for the public good as an archive for future generations of developer tool developers. 
-That said, I'd love to see what you do with it! I love to hear stories about how people are building upon the work.
+Unfortunately, because I've long since moved on to other projects, I cannot support this code or develop it further. Fork it, patch it, extend it: do whatever you like with it. It's here for the public good as an archive for future generations of developer tool developers. I'd love to see what you do with it! I love to hear stories about how people are building upon the work.
+
+That said, if you find that things are critically broken and can be fixed with some simple changes, submit a pull request. I'll review all requests eventually and merge them, so that others can continue to play with the code.
