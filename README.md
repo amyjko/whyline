@@ -14,6 +14,20 @@ Because of my academic job search in 2008, my position as a professor at the Uni
 
 That said, at the time of writing this readme, it's 2016, eight years later, and I'm on sabbatical. It's about time I open source this thing and let the community more easily access and replicate the work!
 
+## Architecture
+
+The best way to learn the architecture of the tool is to read the articles above. Here are the highest level architectural concepts to get you started:
+
+* Users start the Whyline launcher and select a compiled program to debug
+* The Whyline instruments all of the bytecode in the program to record an execution history
+* The Whyline launches the instrumented program, recording the history to disk
+* After the program halts, the Whyline loads the history, generating a UI to represent the history
+* The user can click on program output and code to ask "why" and "why not" questions about the output.
+* The Whyline answers questions by peforming static and dynamic analyses on the code and execution history.
+
+I spent some time documenting design rationale in comments in the trickier components (mostly because I have a practice of self-explaining the more complicated elements of implementations in comments), but if there's anything you're having trouble understanding, write me, and I'll patch the code with a comment.
+
 ## Support
 
-Unfortunately, because I've long since moved on to other projects, I cannot support this code. Fork it, patch it, extend it: do whatever you like with it. It's here for the public good as an archive for future generations of developer tool developers.
+Unfortunately, because I've long since moved on to other projects, I cannot support this code or develop it further. Fork it, patch it, extend it: do whatever you like with it. It's here for the public good as an archive for future generations of developer tool developers. 
+That said, I'd love to see what you do with it! I love to hear stories about how people are building upon the work.
