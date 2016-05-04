@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+
+<!-- Handle the jar target by default -->
+<project name="Whyline" default="make-and-copy-jar" basedir=".">
+
+	<description>
+		Build a whyline.jar file that contains all code necessary for execution and tracing.
+	</description>
+
+	<property name="build" location="build" />
+	<property name="whyline-jar" location="${build}/whyline.jar" />
+	<property name="osx-app" location="${build}/Whyline.app" />
+	<property name="osx-app-jar-folder" location="${osx-app}/Contents/Resources/Java" />
+
+	<delete file="${whyline-jar}" />
+	
+	<target name="make-and-copy-jar">
+    	<jar destfile="${whyline-jar}">
+    	
+    		<!-- Create a manifest suitable for tracing and analysis. -->
+    		<manifest>
+        		<attribute name="Manifest-Version" value="1.0"/>    		
+        		<attribute name="Main-Class" value="edu.cmu.hcii.whyline.Whyline"/>    		
+        		<attribute name="Premain-Class" value="edu.cmu.hcii.whyline.tracing.Agent"/>    		
+        		<attribute name="Can-Redefine-Classes" value="true"/>    		
+    		</manifest>
+    		
+    		<!-- Include all of the compiled Whyline classes -->
+    		<fileset dir="classes" includes="**/*.class" />
+      		<fileset dir="classes" includes="**/*.png" />
+      		<fileset dir="classes" includes="**/*.gif" />
+      		<fileset dir="classes" includes="**/*.jpg" />
+
+    		<!-- Include all of the classfiles in the trove library -->
+      		<zipfileset src="lib/trove.jar" />
+
+    	</jar>
+    	
+    	<!-- Copy the newly created jar file to the appropriate OS X bundle folder -->
+    	<copy
+	    	file="${whyline-jar}"
+    		overwrite="true"
+    		todir="${osx-app-jar-folder}"
+    	/>
+		
+	</target>
+
+</project>
